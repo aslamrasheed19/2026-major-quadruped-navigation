@@ -1,6 +1,6 @@
 <div align="center">
 
-# Navigation of Quadruped Robot
+# Control and Navigation of Quadruped Robot
 
 **Keywords:** `robotics` `perception` `navigation` `control`
 
@@ -104,7 +104,7 @@ Include video if any
 ```bibtex
 @mastersthesis{ravikumar_aslam_2026,
   author = {Padala Ravikumar and Muhammed Aslam A},
-  title  = {Navigation of Quadruped Robot},
+  title  = {Control and Navigation of Quadruped Robot},
   school = {Indian Institute of Technology Delhi},
   year   = {2026},
   note   = {M.Tech Control and Automation (EEA)}
