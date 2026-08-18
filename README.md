@@ -97,15 +97,18 @@ Include video if any
 
 
 ---  
+---
+---
+
 ## Citation
 ```bibtex
-    @mastersthesis{authorYEAR,
-      author = {},
-      title  = {},
-      school = {Indian Institute of Technology Delhi},
-      year   = {},
-      note   = {M.Tech Robotics (JRB), CoE-BIRD}
-    }
+@mastersthesis{ravikumar_aslam_2026,
+  author = {Padala Ravikumar and Muhammed Aslam A},
+  title  = {Navigation of Quadruped Robot},
+  school = {Indian Institute of Technology Delhi},
+  year   = {2026},
+  note   = {M.Tech Control and Automation (EEA)}
+}
 ```
 ---
 
