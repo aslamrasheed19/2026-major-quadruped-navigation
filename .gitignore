@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# ROS2
+build/
+install/
+log/
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Large data
+data/raw/
+data/large/
+
+# Models
+*.pt
+*.pth
+*.onnx
+
+# ROS bags
+*.bag
+*.db3
