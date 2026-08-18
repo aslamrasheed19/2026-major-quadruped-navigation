@@ -1,6 +1,6 @@
 <div align="center">
 
-# Project Title
+# Navigation of Quadruped Robot
 
 **Keywords:** `robotics` `perception` `navigation` `control`
 
@@ -109,12 +109,13 @@ Include video if any
 ```
 ---
 
+---
+
 ## Team
 
-| Role           | Name                |
-| ---------------| ------------------- |
-| Student(s)     |                     |
-| Supervisor(s)  |                     |
-
+| Role | Name |
+| :--- | :--- |
+| Student(s) | Padala Ravikumar (2025EEA2414)<br>Muhammed Aslam A (2025EEA2819) |
+| Supervisor(s) | Prof. Shubhendu Bhasin |
 
 ---
