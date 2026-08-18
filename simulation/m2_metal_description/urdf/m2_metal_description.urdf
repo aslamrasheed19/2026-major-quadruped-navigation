@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Svan_m2_Assembly_A02">
+  <mujoco>
+    <compiler
+      meshdir="../meshes"
+      discardvisual="false"
+    />
+  </mujoco>
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.156 0.55 0.96 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.024 0.251 0.169 1.0"/>
+  </material>
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.12637 0.00021815 0.02595"
+        rpy="0 0 0" />
+      <mass
+        value="6.4642" />
+      <inertia
+        ixx="0.003859"
+        ixy="-3.6436E-06"
+        ixz="-7.6209E-05"
+        iyy="0.0054555"
+        iyz="-1.7659E-06"
+        izz="0.007064" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Alias frame for kinodynamics lookup -->
+  <link name="base"/>
+  <joint name="base_to_base_link" type="fixed">
+    <parent link="base"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- IMU link -->
+  <link name="imu_link"/>
+  <joint name="base_to_imu" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="FR_hip_link">
+    <inertial>
+      <origin
+        xyz="-0.0047412 -0.072083 8.6502E-08"
+        rpy="0 0 0" />
+      <mass
+        value="1.101" />
+      <inertia
+        ixx="0.00027199"
+        ixy="1.4354E-06"
+        ixz="-1.3718E-10"
+        iyy="0.00036599"
+        iyz="1.8505E-13"
+        izz="0.00026605" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.19085 -0.06 0.00025"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_hip_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-4.8"
+      upper="4.9"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="FR_thigh_link">
+    <inertial>
+      <origin
+        xyz="1.4988E-15 -0.001 -0.072948"
+        rpy="0 0 0" />
+      <mass
+        value="0.27942" />
+      <inertia
+        ixx="0.00024022"
+        ixy="2.1192E-20"
+        ixz="1.9639E-19"
+        iyy="0.00024708"
+        iyz="-2.8494E-20"
+        izz="1.8899E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0801 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_hip_link" />
+    <child
+      link="FR_thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.04"
+      upper="4.188"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="FR_calf_link">
+    <inertial>
+      <origin
+        xyz="0.0030425 -0.00099999 -0.078392"
+        rpy="0 0 0" />
+      <mass
+        value="0.14497" />
+      <inertia
+        ixx="0.00030596"
+        ixy="1.0025E-11"
+        ixz="3.5358E-05"
+        iyy="0.00031852"
+        iyz="-2.4281E-11"
+        izz="1.5571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1915"
+      rpy="0 0 0" />
+    <parent
+      link="FR_thigh_link" />
+    <child
+      link="FR_calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.69"
+      upper="4.91"
+      effort="24"
+      velocity="15" />
+  </joint>
+  <link
+    name="FR_foot">
+    <inertial>
+      <origin
+        xyz="0.006147 0.0001777 0.01158"
+        rpy="0 0 0" />
+      <mass
+        value="0.023304" />
+      <inertia
+        ixx="2.574E-06"
+        ixy="-1.3093E-08"
+        ixz="3.4498E-07"
+        iyy="2.6153E-06"
+        iyz="-2.4512E-08"
+        izz="3.0408E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FR_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_foot_joint"
+    type="fixed"
+    dont_collapse="true">
+    <origin
+      xyz="-0.00011504 -0.001 -0.20587"
+      rpy="0 0 0" />
+    <parent
+      link="FR_calf_link" />
+    <child
+      link="FR_foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="FR_foot_site"/>
+  <joint name="FR_foot_site_joint" type="fixed" dont_collapse="true">
+    <origin rpy="0 0 0" xyz="0.0 0 -0.016"/>
+    <parent link="FR_foot"/>
+    <child link="FR_foot_site"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link
+    name="FL_hip_link">
+    <inertial>
+      <origin
+        xyz="-0.0049686 0.072083 0.00022732"
+        rpy="0 0 0" />
+      <mass
+        value="1.101" />
+      <inertia
+        ixx="0.00027615"
+        ixy="-1.4354E-06"
+        ixz="-1.3718E-10"
+        iyy="0.00036599"
+        iyz="-4.2352E-12"
+        izz="0.0002619" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0.19085 0.06 0.00025"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_hip_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-4.8"
+      upper="4.9"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="FL_thigh_link">
+    <inertial>
+      <origin
+        xyz="1.3461E-15 1.3878E-17 -0.072948"
+        rpy="0 0 0" />
+      <mass
+        value="0.27942" />
+      <inertia
+        ixx="0.00024022"
+        ixy="-2.4272E-21"
+        ixz="3.2232E-20"
+        iyy="0.00024708"
+        iyz="6.4194E-21"
+        izz="1.8899E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0811 0"
+      rpy="0 0 0" />
+    <parent
+      link="FL_hip_link" />
+    <child
+      link="FL_thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.04"
+      upper="4.188"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="FL_calf_link">
+    <inertial>
+      <origin
+        xyz="0.0030425 -1.7913E-05 -0.078392"
+        rpy="0 0 0" />
+      <mass
+        value="0.14497" />
+      <inertia
+        ixx="0.00030596"
+        ixy="1.0025E-11"
+        ixz="3.5358E-05"
+        iyy="0.00031852"
+        iyz="-2.4281E-11"
+        izz="1.5571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1915"
+      rpy="0 0 0" />
+    <parent
+      link="FL_thigh_link" />
+    <child
+      link="FL_calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.69"
+      upper="4.91"
+      effort="24"
+      velocity="15" />
+  </joint>
+  <link
+    name="FL_foot">
+    <inertial>
+      <origin
+        xyz="0.006147 0.0011777 0.01158"
+        rpy="0 0 0" />
+      <mass
+        value="0.023304" />
+      <inertia
+        ixx="2.574E-06"
+        ixy="-1.3093E-08"
+        ixz="3.4498E-07"
+        iyy="2.6153E-06"
+        iyz="-2.4512E-08"
+        izz="3.0408E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/FL_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_foot_joint"
+    type="fixed"
+    dont_collapse="true">
+    <origin
+      xyz="-0.00011504 -0.0010179 -0.20587"
+      rpy="0 0 0" />
+    <parent
+      link="FL_calf_link" />
+    <child
+      link="FL_foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="FL_foot_site"/>
+  <joint name="FL_foot_site_joint" type="fixed" dont_collapse="true">
+    <origin rpy="0 0 0" xyz="0.0 0 -0.016"/>
+    <parent link="FL_foot"/>
+    <child link="FL_foot_site"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link
+    name="RR_hip_link">
+    <inertial>
+      <origin
+        xyz="0.0051293 -0.072083 -0.00016068"
+        rpy="0 0 0" />
+      <mass
+        value="1.101" />
+      <inertia
+        ixx="0.00027407"
+        ixy="-1.4354E-06"
+        ixz="2.0758E-06"
+        iyy="0.00036599"
+        iyz="3.1258E-12"
+        izz="0.00026397" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.19085 -0.06 0.00025"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_hip_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-4.8"
+      upper="4.9"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="RR_thigh_link">
+    <inertial>
+      <origin
+        xyz="-1.1657E-15 -0.001 -0.072948"
+        rpy="0 0 0" />
+      <mass
+        value="0.27942" />
+      <inertia
+        ixx="0.00024022"
+        ixy="3.2325E-21"
+        ixz="7.1953E-20"
+        iyy="0.00024708"
+        iyz="-7.8343E-22"
+        izz="1.8899E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0801 0"
+      rpy="0 0 0" />
+    <parent
+      link="RR_hip_link" />
+    <child
+      link="RR_thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.04"
+      upper="4.188"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="RR_calf_link">
+    <inertial>
+      <origin
+        xyz="0.0030425 -0.00099999 -0.078392"
+        rpy="0 0 0" />
+      <mass
+        value="0.14497" />
+      <inertia
+        ixx="0.00030596"
+        ixy="1.0025E-11"
+        ixz="3.5358E-05"
+        iyy="0.00031852"
+        iyz="-2.4281E-11"
+        izz="1.5571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1915"
+      rpy="0 0 0" />
+    <parent
+      link="RR_thigh_link" />
+    <child
+      link="RR_calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.69"
+      upper="4.91"
+      effort="24"
+      velocity="15" />
+  </joint>
+  <link
+    name="RR_foot">
+    <inertial>
+      <origin
+        xyz="0.006147 0.0001777 0.01158"
+        rpy="0 0 0" />
+      <mass
+        value="0.023304" />
+      <inertia
+        ixx="2.574E-06"
+        ixy="-1.3093E-08"
+        ixz="3.4498E-07"
+        iyy="2.6153E-06"
+        iyz="-2.4512E-08"
+        izz="3.0408E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RR_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_foot_joint"
+    type="fixed"
+    dont_collapse="true">
+    <origin
+      xyz="-0.00011504 -0.001 -0.20587"
+      rpy="0 0 0" />
+    <parent
+      link="RR_calf_link" />
+    <child
+      link="RR_foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="RR_foot_site"/>
+  <joint name="RR_foot_site_joint" type="fixed" dont_collapse="true">
+    <origin rpy="0 0 0" xyz="0.0 0 -0.016"/>
+    <parent link="RR_foot"/>
+    <child link="RR_foot_site"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link
+    name="RL_hip_link">
+    <inertial>
+      <origin
+        xyz="0.0051292 0.072083 0.00016079"
+        rpy="0 0 0" />
+      <mass
+        value="1.101" />
+      <inertia
+        ixx="0.00027407"
+        ixy="1.4354E-06"
+        ixz="-2.0758E-06"
+        iyy="0.00036599"
+        iyz="-2.8635E-12"
+        izz="0.00026397" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_hip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_hip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.19085 0.06 0.00025"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RL_hip_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-4.8"
+      upper="4.9"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="RL_thigh_link">
+    <inertial>
+      <origin
+        xyz="-1.1102E-15 0.001 -0.072948"
+        rpy="0 0 0" />
+      <mass
+        value="0.27942" />
+      <inertia
+        ixx="0.00024022"
+        ixy="-4.1771E-21"
+        ixz="1.4134E-19"
+        iyy="0.00024708"
+        iyz="-5.0959E-21"
+        izz="1.8899E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0801 0"
+      rpy="0 0 0" />
+    <parent
+      link="RL_hip_link" />
+    <child
+      link="RL_thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.04"
+      upper="4.188"
+      effort="12"
+      velocity="30" />
+  </joint>
+  <link
+    name="RL_calf_link">
+    <inertial>
+      <origin
+        xyz="0.0030425 0.00098209 -0.078392"
+        rpy="0 0 0" />
+      <mass
+        value="0.14497" />
+      <inertia
+        ixx="0.00030596"
+        ixy="1.0025E-11"
+        ixz="3.5358E-05"
+        iyy="0.00031852"
+        iyz="-2.4281E-11"
+        izz="1.5571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1915"
+      rpy="0 0 0" />
+    <parent
+      link="RL_thigh_link" />
+    <child
+      link="RL_calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.69"
+      upper="4.91"
+      effort="24"
+      velocity="15" />
+  </joint>
+  <link
+    name="RL_foot">
+    <inertial>
+      <origin
+        xyz="0.006147 0.0001777 0.01158"
+        rpy="0 0 0" />
+      <mass
+        value="0.023304" />
+      <inertia
+        ixx="2.574E-06"
+        ixy="-1.3093E-08"
+        ixz="3.4498E-07"
+        iyy="2.6153E-06"
+        iyz="-2.4512E-08"
+        izz="3.0408E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Svan_m2_Assembly_A02/meshes/RL_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_foot_joint"
+    type="fixed"
+    dont_collapse="true">
+    <origin
+      xyz="-0.00011504 0.00098207 -0.20587"
+      rpy="0 0 0" />
+    <parent
+      link="RL_calf_link" />
+    <child
+      link="RL_foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="RL_foot_site"/>
+  <joint name="RL_foot_site_joint" type="fixed" dont_collapse="true">
+    <origin rpy="0 0 0" xyz="0.0 0 -0.016"/>
+    <parent link="RL_foot"/>
+    <child link="RL_foot_site"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Transmissions for all joints -->
+  <transmission name="FR_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_hip_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_hip_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="FR_thigh_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_thigh_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_thigh_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="FR_calf_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_calf_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_calf_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="FL_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_hip_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_hip_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="FL_thigh_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_thigh_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_thigh_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="FL_calf_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_calf_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_calf_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RR_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_hip_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_hip_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RR_thigh_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_thigh_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_thigh_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RR_calf_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_calf_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_calf_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RL_hip_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_hip_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_hip_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RL_thigh_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_thigh_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_thigh_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="RL_calf_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_calf_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_calf_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
