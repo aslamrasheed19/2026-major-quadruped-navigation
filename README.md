@@ -1,6 +1,6 @@
 <div align="center">
 
-# Control and Navigation of Quadruped Robot
+# Control and Navigation of Svan M2 Quadruped Robot
 
 **Keywords:** `robotics` `perception` `navigation` `control`
 
@@ -10,11 +10,7 @@
 
 ## Overview
 
-A concise description of:
-
-* problem statement,
-* motivation and use cases,
-* and the key technical contribution.
+This project focuses on the modeling, simulation, and control of the Svan M2 quadruped robot. The work begins with Literature survey of similar quadruped robots, extracting the robot's physical and geometric parameters from the available URDF, deriving and validating its kinematic model, and developing baseline controllers (PID) in simulation. The eventual objective is to implement path-following control and integrate the robot with a ROS2-based simulation environment and final hardware deployment.
 
 ## System Overview
 <!-- replace with your system diagram -->
@@ -31,22 +27,30 @@ Briefly discuss the proposed solution approach
 
 
 ### Cognition and Reasoning
-Brief description
+To be updated
 
 ### Perception
 
-Brief description.
+To be updated
 
 ### Planning / Decision Making
 
-Brief description.
+To be updated
 
 ### Control
 
-Brief description.
+To be updated
 
 ### Mechanics and Mechanical Design
-Brief description
+12 actuated joints
+3 joints per leg
+6-DOF floating base
+total mass = 12.57 kg
+hip offset d=0.0801 m
+thigh L2 =0.1915 m
+calf L3=0.1943 m
+body length = 0.3817 m
+track width = 0.12 m
 
 ### Hardware Platform
 
