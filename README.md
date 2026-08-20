@@ -42,15 +42,15 @@ To be updated
 To be updated
 
 ### Mechanics and Mechanical Design
-12 actuated joints
-3 joints per leg
-6-DOF floating base
-total mass = 12.57 kg
-hip offset d=0.0801 m
-thigh L2 =0.1915 m
-calf L3=0.1943 m
-body length = 0.3817 m
-track width = 0.12 m
+* 12 actuated joints
+* 3 joints per leg
+* 6-DOF floating base
+* total mass = 12.57 kg
+* hip offset d=0.0801 m
+* thigh L2 =0.1915 m
+* calf L3=0.1943 m
+* body length = 0.3817 m
+* track width = 0.12 m
 
 ### Hardware Platform
 
@@ -81,15 +81,12 @@ Include simulation/experimental plots
 
 ## Demonstration
 
-Include video if any
+### MuJoCo Walking Demo
 
-<div align="center">
+A preliminary open-loop trot gait for the Svan M2 was implemented
+using the verified leg inverse kinematics and joint-space PD control.
 
-[![Demo Video](media/thumbnails/demo_thumbnail.png)](https://youtube.com/your-link)
-
-**Click above to watch the full demonstration**
-
-</div>
+[Watch the walking demonstration](media/walk_demo.mp4)
 
 ---
 ## Thesis report and presentation
@@ -105,14 +102,7 @@ Include video if any
 ---
 
 ## Citation
-```bibtex
-@mastersthesis{ravikumar_aslam_2026,
-  author = {Padala Ravikumar and Muhammed Aslam A},
-  title  = {Control and Navigation of Quadruped Robot},
-  school = {Indian Institute of Technology Delhi},
-  year   = {2026},
-  note   = {M.Tech Control and Automation (EEA)}
-}
+```
 ```
 ---
 
