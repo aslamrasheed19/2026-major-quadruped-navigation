@@ -86,7 +86,7 @@ Include simulation/experimental plots
 A preliminary open-loop trot gait for the Svan M2 was implemented
 using the verified leg inverse kinematics and joint-space PD control.
 
-[Watch the walking demonstration](media/walk_demo.mp4)
+[Watch the walking demonstration](media/videos/walk_demo.mp4)
 
 ---
 ## Thesis report and presentation
