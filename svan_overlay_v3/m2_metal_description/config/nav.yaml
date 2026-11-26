@@ -1,0 +1,26 @@
+# Obstacle-avoidance scenario for svan_walk_controller (used when  nav:=known  or  nav:=sensed ).
+# Loaded AFTER walk.yaml, so the waypoints below replace the 1 m square of walk.yaml.  Everything is in metres, world frame
+# (the robot spawns at 0,0 facing +x).  All numbers MUST be written as decimals (2.0, not 2) -- ROS 2 YAML typing.
+#
+# Why a 2 m square: the planner keeps 0.42 m between the robot centre and any obstacle surface (robot radius 0.32 + margin 0.10),
+# so an obstacle on a 1 m square leaves no room to pass.  Edit the lists to try other layouts, or point to your own file:
+#     ros2 launch xterra_m2_description gazebo.launch.py nav:=sensed nav_config:=/path/to/my_nav.yaml
+svan_walk_controller:
+  ros__parameters:
+    waypoints: [2.0, 0.0,   2.0, 2.0,   0.0, 2.0,   0.0, 0.0]
+
+    # obstacles: they are built into the Gazebo world in BOTH modes.
+    #   nav:=known   the planner is given these lists ("the robot knows where the obstacles are")
+    #   nav:=sensed  the node never reads them: it only sees what the lidar returns
+    obstacle_circles: [2.0, 1.0, 0.15]                       # x, y, radius          (cylinders, 0.6 m tall)
+    obstacle_boxes: [1.0, 0.0, 0.3, 0.3,                     # x, y, size_x, size_y  (boxes, 0.6 m tall, axis-aligned)
+                     1.0, 2.0, 0.3, 0.5]
+
+    nav_bounds: [-1.5, -1.5, 3.5, 3.5]                       # planning map: xmin, ymin, xmax, ymax.  Must contain the path AND the detours
+    grid_res: 0.05
+    robot_radius: 0.32                                       # circle around the body centre that contains body + legs
+    nav_margin: 0.10                                         # extra clearance on top of robot_radius
+    lookahead: 0.30
+    replan_every: 4.0                                        # s without progress along the path before re-planning
+    nav_rate: 20.0                                           # Hz (simulation time)
+    lidar_range_max: 4.0                                     # m, used by the mapper (the sensor itself reaches 6 m)
